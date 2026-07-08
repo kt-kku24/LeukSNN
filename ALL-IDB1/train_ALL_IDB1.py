@@ -110,6 +110,10 @@ def main():
             torchvision.transforms.Resize((224, 224)),
             torchvision.transforms.RandomRotation(30),
             ])
+    
+    val_transform = torchvision.transforms.Compose([
+            torchvision.transforms.Resize((224, 224)),
+            ])
     dataset = LeukLoader(r'Path to ALL-IDB1 dataset on your computer')
     
     print(len(dataset))
@@ -138,7 +142,7 @@ def main():
         print('len of val', len(val_subset))
 
         train_dataset = trainDataset(train_subset, transform=transform)
-        val_dataset = testDataset(val_subset)
+        val_dataset = testDataset(val_subset, transform=val_transform))
 
         train_drop = False
         
