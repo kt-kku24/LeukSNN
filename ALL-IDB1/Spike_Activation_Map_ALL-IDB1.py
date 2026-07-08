@@ -118,7 +118,9 @@ def main():
     print(len(dataset))
     b_class = dataset.get_benign_class()    
     batch_size = 22
-
+    val_transform = torchvision.transforms.Compose([
+            torchvision.transforms.Resize((224, 224)),
+            ])
     torch.cuda.empty_cache()
     fold = 1
 
@@ -130,7 +132,7 @@ def main():
 
     print('len of val', len(val_subset))
 
-    val_dataset = testDataset(val_subset)
+    val_dataset = testDataset(val_subset, transform=val_transform)
 
     validation_loader = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=True)
 
