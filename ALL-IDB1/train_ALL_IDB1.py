@@ -142,7 +142,7 @@ def main():
         print('len of val', len(val_subset))
 
         train_dataset = trainDataset(train_subset, transform=transform)
-        val_dataset = testDataset(val_subset, transform=val_transform))
+        val_dataset = testDataset(val_subset, transform=val_transform)
 
         train_drop = False
         
